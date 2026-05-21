@@ -18,8 +18,9 @@
 
 ---
 
-# - Desenvolvimento [ATUALIZADO]
-<img width="2132" height="592" alt="Group 2" src="https://github.com/user-attachments/assets/6893c372-6664-4490-90a6-e591e23a2027" />
+# - Desenvolvimento [ATUALIZADO 21/05/2026]
+<img width="1408" height="1055" alt="Group 5" src="https://github.com/user-attachments/assets/f269b448-b6b9-4921-8036-c1a30ff88783" />
+
 
 
 
