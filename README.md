@@ -41,9 +41,9 @@
 <br/>
 
 ## 👩‍💻 Tecnologias Utilizadas
-* **Runtime:** Electron (Node.js)
-* **Linguagem:** JavaScript (ES6+), HTML5 e CSS3
-* **Design e Prototipagem:** Figma
+* **Ambiente de Execução:** Electron (Node.js)
+* **Linguagem de Programação:** JavaScript (ES6+)
+* **Marcação e Estilo:** HTML5 e CSS3
 ---
 
 <br/>

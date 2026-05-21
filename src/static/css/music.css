@@ -1,0 +1,57 @@
+@import url('themes.css');
+
+.container {
+    height: 78vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.btn_changeTheme{  
+    font-size: 1.8rem;
+}
+
+/* Container do cabeçalho da música */
+.header {
+    width: 100%;
+    text-align: center;
+    position: relative; /* Importante para posicionar os detalhes quadriculados depois */
+    padding-top: 5px; /* Dá um respiro no topo */
+}
+
+/* Estilo do texto "MARROM" */
+.music-name {
+    color: #b55e56; /* Cor baseada no seu design (ajuste se necessário) */
+    font-size: 20px;
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin: 0;
+    margin-bottom: 4px; /* Espaço entre o texto e a linha grossa */
+}
+
+/* A linha separadora */
+.line {
+    width: 100%;
+    height: 4px; /* Espessura da linha */
+    background-color: #b55e56; /* Mesma cor do texto */
+}
+
+.container-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn_arrowLeft, .btn_arrowRight {
+    color: #E35B5D; 
+    background: transparent;
+    border: none;
+    transition: transform 0.1s;
+}
+
+.btn_arrowLeft:hover, .btn_arrowRight:hover {
+    color: #f49a9b; 
+    transform: scale(1.1); 
+}

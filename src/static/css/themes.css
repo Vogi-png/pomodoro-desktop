@@ -1,0 +1,57 @@
+/* 1. Definições de base (Study Mode / Default) */
+:root {
+    --bg: linear-gradient(178deg, #FF9A83, #FFD3BF);
+    --container: #FFDDC5;
+    --btn-bg: #FFC8A0;
+    --display-color: #A95A52;
+    --title-color: #6F5846;
+    --phrases-color: #b85455;
+}
+
+/* 2. Quando o app entra no modo BREAK (Default) */
+body.break-mode {
+    --bg: linear-gradient(178deg, #83AAFF, #BFDEFF);
+    --container: #c5efff;
+    --btn-bg: #a0d9ff;
+    --display-color: #5272a9;
+    --title-color: #46566f;
+    --phrases-color: #546bb8;
+}
+
+/* 3. Quando o usuário ativa o DARK MODE (Study Dark) */
+body.dark-theme {
+    --bg: linear-gradient(180deg, #2e1a1a, #672525);
+    --container: #250606;
+    --btn-bg: #7f4a4a;
+    --display-color: #b29e9e;
+    --title-color: #8a7b7b;
+    --phrases-color: #987f7f;
+}
+
+/* 4. A interseção: DARK MODE + BREAK (Break Dark) */
+body.dark-theme.break-mode {
+    --bg: linear-gradient(180deg, #1A1A2E, #253667);
+    --container: #061425;
+    --btn-bg: #4a587f;
+    --display-color: #9eaab2;
+    --title-color: #7b828a;
+    --phrases-color: #7f8498;
+}
+
+/* 5. Novo tema: "New Theme" que ainda n funciona */
+
+body.new-theme {
+    --bg: linear-gradient(180deg, #ffecd2, #fcb69f);
+    --container: #ffe0b2;
+    --btn-bg: #ffb74d;
+    --display-color: #6F5846;
+    --title-color: #6F5846;
+}
+
+body.new-theme.break-mode {
+    --bg: linear-gradient(180deg, #fcb69f, #ffecd2);
+    --container: #ffcc80;
+    --btn-bg: #ff9800;
+    --display-color: #6F5846;
+    --title-color: #6F5846;
+}

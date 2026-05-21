@@ -1,0 +1,94 @@
+@import url('themes.css');
+
+.btn_music {
+    position: absolute; 
+    top: 4px;         
+    right: 10px;   
+    background: transparent;
+    border: none;
+    font-size: 2.5rem;
+    color: var(--title-color);
+    transition: transform 0.1s;
+}
+
+.btn_arrowLeft, .btn_arrowRight {
+    color: #E35B5D; 
+    background: transparent;
+    border: none;
+    transition: transform 0.1s;
+}
+
+.btn_arrowLeft:hover, .btn_arrowRight:hover {
+    color: #f49a9b; 
+    transform: scale(1.1); 
+}
+
+.container {
+    height: 82vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    
+    padding: 5%;
+}
+
+.content {
+    width: 170px;
+    text-align: center;
+}
+
+.content, .timerContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer h1{
+    font-size: 6rem;
+    font-family: "Jersey 10", sans-serif;
+    line-height: 0.7;    
+    margin-bottom: 5px;  
+    display: block;
+    width: 220px;       
+    text-align: center;
+}
+
+.line{
+    width: 100%;
+    height: 4px;
+    background-color: var(--display-color);
+}
+
+.phrases{
+    display: block;   
+    margin: 5px 0;
+    font-size: 1.4rem;
+    font-family: "Jersey 10", sans-serif;
+    min-height: 3.5rem; 
+    line-height: 1.1;
+    color: var(--phrases-color);
+    width: 100%;      
+}
+
+.btn_changeTheme{  
+    font-size: 2.2rem;
+}
+
+
+.btn_timer {
+    background-color: var(--btn-bg);
+    border: 4px solid var(--display-color);
+    padding: 6px 20px;
+    border-radius: 5px 5px 10px 10px;
+    color: var(--display-color);
+    font-size: 1.3rem;
+    transition: all 0.1s;
+}
+
+.btn_timer:hover {
+    color: #6F5846; 
+    border: 4px solid #6F5846;
+    transform: scale(1.1); 
+}

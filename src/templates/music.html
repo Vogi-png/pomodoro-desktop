@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/style.css"> 
-    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/music.css">
     <title>Pomodoro</title>
 </head>
 
@@ -17,8 +17,8 @@
     <div class="background">
         <div class="titleBar">
             <div class="title">
-                <button class="btn_changeTheme" id="btnTheme">☺</button>
-                <h4>POMODORO</h4> 
+                <button class="btn_changeTheme" id="btnTheme">♬</button>
+                <h4>SOM</h4> 
             </div>
 
             <div class="buttons">
@@ -40,43 +40,44 @@
 
 
         <div class="container">
-            <button class="btn_music" id="btnMusic">♬</button>
-            <button class="btn_arrowLeft" id="btnArrowLeft"> 
-                <svg width="45" height="45" viewBox="0 0 64 64" fill="none">
-                    <polygon 
-                        points="44,10 12,32 44,54" 
-                        fill="currentColor" 
-                        stroke="#A95A52" 
-                        stroke-width="4" 
-                        stroke-linejoin="round"/>
-                </svg>
-            </button>
+            <div class="header">
+                <h2 class="music-name">Marrom</h2>
+            </div> 
+            <div class="line"></div>
 
-            <div class="content">
-                <div class="timerContainer"> 
-                    <img src="../static/img/tomato.png" alt="Tomato Icon" class="tomatoIcon">
+            <div class="container-content">
+                
+                <button class="btn_arrowLeft" id="btnArrowLeft"> 
+                    <svg width="45" height="45" viewBox="0 0 64 64" fill="none">
+                        <polygon 
+                            points="44,10 12,32 44,54" 
+                            fill="currentColor" 
+                            stroke="#A95A52" 
+                            stroke-width="4" 
+                            stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                
+                <div class="content">
 
-                    <div class="timer">
-                        <h1 id="display"></h1>
-                        <div class="line"></div>
-                    </div>
+                    <img src="../static/img/disco.png" alt="Disco Icon" class="discoIcon">
+
                 </div>
 
-                <h4 class="phrases" id="phrases"> BORA ESTUDAR </h4>
 
-                <button class="btn_timer" id="btnTimer">INICIAR</button>
+                <button class="btn_arrowRight" id="btnArrowRight"> 
+                    <svg width="45" height="45" viewBox="0 0 64 64" fill="none">
+                        <polygon 
+                            points="20,10 52,32 20,54" 
+                            fill="currentColor" 
+                            stroke="#A95A52" 
+                            stroke-width="4" 
+                            stroke-linejoin="round"/>
+                    </svg>
+                </button>
+
             </div>
-
-            <button class="btn_arrowRight" id="btnArrowRight"> 
-                <svg width="45" height="45" viewBox="0 0 64 64" fill="none">
-                    <polygon 
-                        points="20,10 52,32 20,54" 
-                        fill="currentColor" 
-                        stroke="#A95A52" 
-                        stroke-width="4" 
-                        stroke-linejoin="round"/>
-                </svg>
-            </button>
         </div>
     </div>
     <script src="../static/js/buttons.js"></script>

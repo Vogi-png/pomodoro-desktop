@@ -1,42 +1,38 @@
-
-// Pegar os objetos foco do HTML
-// DISPLAYS
+//Pegar os objetos foco do HTML
 const display = document.getElementById('display');
-const phrases = document.getElementById('phrases');
-
-// BOTÕES
 const btnTimer = document.getElementById('btnTimer');
-const btnArrowLeft = document.getElementById('btnArrowLeft');
-const btnArrowRight = document.getElementById('btnArrowRight'); 
-const btnTheme = document.getElementById('btnTheme');
-
-// ÁUDIOS 
 const alarm = new Audio('../static/audio/alarm.mp3');
 const hover = new Audio('../static/audio/hover.mp3');
 const click = new Audio('../static/audio/click.wav');
-click.volume = 0.3;
+const phrases = document.getElementById('phrases');
+const btnArrowLeft = document.getElementById('btnArrowLeft');
+const btnArrowRight = document.getElementById('btnArrowRight'); 
 
 let inicialTime = 25 * 60; // Tempo inicial (25 minutos) em segundos 
 let timeRemaining = inicialTime; // Tempo restante
 let chronometer = null; // Variável para armazenar o intervalo do cronômetro
 let studyMode = true; // Variável para controlar o modo (estudo ou descanso)
 
-
-
-// FUNÇÕES
-
-// salvar tema escolhido pelo usuário 
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    document.body.classList.add('dark-theme');
-}
-
-// função para atualizar o display do timer
 function updateDisplay() {
     const minutes = Math.floor(timeRemaining / 60); // transformar o tempo restante em minutos
     const seconds = timeRemaining % 60; // transformar o tempo restante em segundos
 
     display.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`; // Exibir o tempo no formato MM:SS
+}
+
+// função para resetar o timer
+function resetTimer() {
+    clearInterval(chronometer); // para o cronômetro
+    chronometer = null;
+    timeRemaining = inicialTime;
+    updateDisplay();
+    btnTimer.innerText = "INICIAR";
+    if (studyMode) {
+        phrases.innerText = "BORA ESTUDAR";
+    } else {    
+        phrases.innerText = "HORA DO DESCANSO";
+    }
+    console.log("Timer Reiniciado");
 }
 
 // função para pausar o timer
@@ -46,30 +42,33 @@ function stopTimer() {
     btnTimer.innerText = "▶︎";
 }
 
-// função para resetar o timer
-function resetTimer() {
-    stopTimer();
-    timeRemaining = inicialTime;
-    updateDisplay();
-    btnTimer.innerText = "INICIAR";
-    phrases.innerText = studyMode ? "BORA ESTUDAR" : "HORA DO DESCANSO";
-}
-
 function toggleMode() {
-    studyMode = !studyMode; 
+    studyMode = !studyMode; // Inverte o modo
 
-    stopTimer(); 
+    stopTimer(); // Para o timer atual 
 
-    // Troca o estado visual via classe CSS no Body
-    document.body.classList.toggle('break-mode', !studyMode);
+    if (studyMode) {
+        // --- MODO ESTUDO ---
+        inicialTime = 25 * 60;
+        document.querySelector('.background').style.background = "linear-gradient(178deg,rgba(255, 154, 131, 1) 0%, rgba(255, 211, 191, 1) 100%)"; // Cor pêssego
+        document.querySelector('.container').style.backgroundColor = "#FFDDC5"; 
+        document.querySelector('.btn_timer').style.backgroundColor = "#FFC8A0"; 
+        phrases.innerText = "BORA ESTUDAR";
+        btnTimer.innerText = "INICIAR";
 
-    // Ajusta os tempos padrão
-    inicialTime = studyMode ? 25 * 60 : 5 * 60;
-    timeRemaining = inicialTime;
-    btnTimer.innerText = "INICIAR";
+    } else {
+        // --- MODO DESCANSO ---
+        inicialTime = 5 * 60;
+        document.querySelector('.background').style.background = "linear-gradient(178deg,rgb(131, 170, 255) 0%, rgb(191, 222, 255) 100%)"; // Azulzinho
+        document.querySelector('.container').style.backgroundColor = "#c5efff"; 
+        document.querySelector('.btn_timer').style.backgroundColor = "#a0d9ff"; 
+        phrases.innerText = "HORA DO DESCANSO";
+        btnTimer.innerText = "INICIAR";
 
-    phrases.innerText = studyMode ? "BORA ESTUDAR" : "HORA DO DESCANSO";
-    updateDisplay();
+    }
+
+    timeRemaining = inicialTime; // Reseta o tempo para o novo modo
+    updateDisplay(); // Atualiza a tela
 }
 
 function positivity() {
@@ -133,19 +132,17 @@ btnTimer.addEventListener('click', () => {
 });
 
 // lógica de clique duplo para resetar o timer
-btnTimer.addEventListener('dblclick', resetTimer);
-
-
-if (btnArrowLeft) btnArrowLeft.addEventListener('click', toggleMode);
-if (btnArrowRight) btnArrowRight.addEventListener('click', toggleMode);
-
-// Troca de Tema (Default <-> Dark) com persistência
-btnTheme.addEventListener('click', () => {
-    const isDark = document.body.classList.toggle('dark-theme');
-    localStorage.setItem('theme', isDark ? 'dark' : 'default');
+btnTimer.addEventListener('dblclick', () => {
+    resetTimer();
 });
 
+btnArrowLeft.addEventListener('click', toggleMode);
+btnArrowRight.addEventListener('click', toggleMode);
+
+
+click.volume = 0.3;
 const allButtons = document.querySelectorAll('button, .btn_arrowLeft, .btn_arrowRight');
+
 allButtons.forEach(button => {
     // Efeito sonoro ao passar o mouse
     button.addEventListener('mouseenter', () => {
