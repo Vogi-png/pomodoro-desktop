@@ -23,31 +23,45 @@ const createMainWindow = () => {
 };
 
 const createmusicWindow = () => {
-    musicWindow = new BrowserWindow({
-        width: 328,
-        height: 329,
-        webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false,
-            backgroundThrottling: false
-        },
-        autoHideMenuBar: true,
-        frame: false,
-        resizable: false,
-        transparent: true
-    });
+    // Só cria a janela se ela não existir
+    if (musicWindow === null) {
+        musicWindow = new BrowserWindow({
+            width: 328,
+            height: 329,
+            webPreferences: {
+                nodeIntegration: true,
+                contextIsolation: false,
+                backgroundThrottling: false
+            },
+            autoHideMenuBar: true,
+            frame: false,
+            resizable: false,
+            transparent: true
+        });
 
-    musicWindow.loadFile('src/templates/music.html');
+        musicWindow.loadFile('src/templates/music.html');
+
+        // Limpa a variável quando a janela for fechada (importante para poder abrir de novo depois)
+        musicWindow.on('closed', () => {
+            musicWindow = null;
+        });
+    } else {
+        // Se já estiver aberta, apenas traz ela para a frente
+        musicWindow.focus();
+    }
 };
 
-app.whenReady().then(() => {
+app.whenReady().then(() => { 
     createMainWindow();
-    createmusicWindow();
 });
 
 // ==========================================
-// Eventos IPC (Registrados apenas UMA vez)
+// Eventos IPC (buttons.js) - para controlar as janelas a partir dos botões
 // ==========================================
+
+ipcMain.on('open-music-window', () => {
+    createmusicWindow();
+});
 
 ipcMain.on('window-minimize', (event) => {
     // Descobre qual janela enviou o sinal

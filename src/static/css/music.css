@@ -17,6 +17,7 @@
 .header {
     width: 100%;
     text-align: center;
+
     position: relative; /* Importante para posicionar os detalhes quadriculados depois */
     padding-top: 5px; /* Dá um respiro no topo */
 }
@@ -35,10 +36,11 @@
 .line {
     width: 100%;
     height: 4px; /* Espessura da linha */
-    background-color: #b55e56; /* Mesma cor do texto */
+    background-color: #6F5846; /* Mesma cor do texto */
 }
 
 .container-content {
+    padding-top: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
